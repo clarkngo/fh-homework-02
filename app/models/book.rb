@@ -33,6 +33,6 @@ class Book < ApplicationRecord
   validates :author, presence: true
   validates :genre, presence: true
   validates :classification, presence: true, inclusion: { in: book_classification }
-  validates :type, presence: true, inclusion: { in: book_type }
+  validates :type_book, presence: true, inclusion: { in: book_type }
   validates :year, presence: true, length: { minimum: 4 }
 end

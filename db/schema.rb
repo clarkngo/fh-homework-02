@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_10_03_070757) do
     t.string "author"
     t.string "genre"
     t.string "classification"
-    t.string "type"
+    t.string "type_book"
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
