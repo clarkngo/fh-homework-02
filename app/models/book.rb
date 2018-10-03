@@ -24,7 +24,7 @@ class Book < ApplicationRecord
    'Bibliography and Library Science'
   ]
 
-  book_classification = [
+  book_type = [
    'Fiction',
    'Nonfiction'
   ]
