@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 # search for book by [title, author, classification, genre, type]
   
   def index
-    @book = Book.first
+    @books = Book.all
   end
 
   def new 
