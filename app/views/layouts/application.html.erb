@@ -9,7 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
   <body>
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="nav-bar-toggler-icon"></span>
+      <%= link_to 'FhHomework02', root_path, class: 'navbar-brand'%>
+      </button>
+
+
+      <div class="navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+          <li class="nav-item">
+            <%= link_to new_book_path, class: 'nav-link' do %>
+            <i class="fa fa-plus-circle"></i>
+              New Book
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
     <%= yield %>
   </body>
 </html>

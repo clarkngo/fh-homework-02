@@ -1,0 +1,13 @@
+<div class="booyah-box col-10 offset-1">
+  <h1>Edit Your Book</h1>
+  <%= simple_form_for @book do |f| %>
+    <%= f.input :title %>
+    <%= f.input :author %>
+    <%= f.input :genre %>
+    <%= f.input :classification %>
+    <%= f.input :type %>
+    <%= f.integer :year %>
+    <br />
+    <%= f.submit 'Update', class: 'btn btn-primary' %>
+  <% end %>
+</div>
