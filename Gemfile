@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.1'
 
+# generate fake data
+gem 'faker', '~> 1.9.1'
 # form submission
 gem 'simple_form', '~> 4.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
