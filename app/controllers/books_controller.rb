@@ -15,7 +15,8 @@ class BooksController < ApplicationController
     @books = Book.all
     if params[:search]
       @search_term = params[:search]
-      @books = @books.search(@search_term)
+      @search_by = params[:search_by]
+      @books = @books.search(@search_by, @search_term)
     end
   end
 
