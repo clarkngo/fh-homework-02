@@ -21,11 +21,14 @@
       <div class="navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
           <li class="nav-item">
+
             <%= form_for "", url: books_path, role: "search", method: :get do %>
-            <%= label_tag("Search:") %>
-            <%= text_field_tag :search, @search_term,placeholder: "Search..." %>
+            <%= label_tag("Search by:") %>
+            <%= text_field_tag :search_by, @search_by, placeholder: "Search by..." %>
+            <%= text_field_tag :search, @search_term, placeholder: "Search..." %>
             <%= submit_tag("Search") %>
             <% end %>    
+
           </li>
         </ul>
       </div>
