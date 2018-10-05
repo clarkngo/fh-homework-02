@@ -4,28 +4,9 @@
     <%= f.input :title %>
     <%= f.input :author %>
     <%= f.input :genre %>
-    <%= f.select( :classification, options_for_select(['General Works - encyclopedias',
-   'Philosophy, Psychology, Religion',
-   'History - Auxiliary Sciences',
-   'History (except American)',
-   'General U.S. History',
-   'Local U.S. History',
-   'Geography, Anthropology, Recreation',
-   'Social Sciences U',
-   'Political Science V',
-   'Law Z - Bibliography and Library Science',
-   'Education',
-   'Music',
-   'Fine Arts',
-   'Language and Literature',
-   'Science',
-   'Medicine',
-   'Agriculture',
-   'Technology',
-   'Military',
-   'Naval Science',
-   'Bibliography and Library Science'])) %>
-    <%= f.select :type_book, options_for_select(['Fiction','Nonfiction']) %>
+    Classification: <%= f.select :classification, options_for_select(Book.classifications) %>
+    <br />
+    Type: <%= f.select :type_book, options_for_select(Book.type_books) %>
     <%= f.input :year %>
     <br />
     <%= f.submit 'Update', class: 'btn btn-primary' %>
