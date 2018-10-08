@@ -26,7 +26,7 @@
             <%= label_tag("Search by:") %>
             <%= select_tag :search_by, options_for_select(
             [['Title', 'title'], ['Author', 'author'], ['Classification', 'classification'],
-             ['Genre', 'genre'], ['Type', 'type_book']]) %>
+             ['Genre', 'genre'], ['Type', 'book_type']]) %>
             <%= text_field_tag :search, @search_term, placeholder: "Search..." %>
             <%= submit_tag("Search") %>
             <% end %>    

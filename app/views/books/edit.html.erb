@@ -25,7 +25,7 @@
    'Military',
    'Naval Science',
    'Bibliography and Library Science'])) %>
-    <%= f.select :type_book, options_for_select(['Fiction','Nonfiction']) %>
+    <%= f.select :book_type, options_for_select(['Fiction','Nonfiction']) %>
     <%= f.input :year %>
     <br />
     <%= f.submit 'Update', class: 'btn btn-primary' %>

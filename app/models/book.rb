@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   validates :author, presence: true
   validates :genre, presence: true
   validates :classification, presence: true
-  validates :type_book, presence: true
+  validates :book_type, presence: true
   validates :year, presence: true, length: { minimum: 4 }
 
   def self.search(search_by, search_term)
