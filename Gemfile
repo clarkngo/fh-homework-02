@@ -3,10 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.3.1'
 
-gem 'pry-stack_explorer'
-gem 'pry-byebug'
-gem 'pry-doc'
-gem 'pry'
+# gem 'pry-stack_explorer'
+# gem 'pry-byebug'
+# gem 'pry-doc'
+# gem 'pry'
 # generate fake data
 gem 'faker', '~> 1.9.1'
 # form submission
