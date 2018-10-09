@@ -12,6 +12,7 @@ class AuthorsController < ApplicationController
     redirect_to root_path
   end
 
+
   private 
 
   def author_params

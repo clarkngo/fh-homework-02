@@ -2,7 +2,7 @@
   <h1>Edit Your Book</h1>
   <%= simple_form_for @book do |f| %>
     <%= f.input :title %>
-    <%= f.input :author %>
+    <%#= comment out author input %> 
     <%= f.input :genre %>
     <%= f.select( :classification, options_for_select(['General Works - encyclopedias',
    'Philosophy, Psychology, Religion',
