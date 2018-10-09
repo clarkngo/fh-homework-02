@@ -3,7 +3,6 @@ class Book < ApplicationRecord
   has_many :authors, :through => :authorships
  
   validates :title, presence: true
-  validates :author, presence: true
   validates :genre, presence: true
   validates :classification, presence: true
   validates :book_type, presence: true
