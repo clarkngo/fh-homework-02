@@ -13,7 +13,7 @@ Book.delete_all
     title: Faker::Book.title,
     genre: Faker::Book.genre,
     classification: Book.classifications.sample,
-    type_book: Book.type_books.sample,
+    book_type: Book.book_types.sample,
     year: rand(1900..2018)
   )
 end
