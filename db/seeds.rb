@@ -23,3 +23,9 @@ end
     author: Faker::Book.author
   )
 end
+=begin
+Book.each do |book| 
+  book = Book.author_id.order("RANDOM()")
+  Book.
+end
+=end
