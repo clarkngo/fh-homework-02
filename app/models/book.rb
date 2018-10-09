@@ -40,7 +40,7 @@ class Book < ApplicationRecord
     ]
   end
 
-  def self.type_books
+  def self.book_types
     [
       'Fiction',
       'Nonfiction'
