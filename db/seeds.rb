@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Book.delete_all
+Author.delete_all
 
 50.times do
   Book.create(
@@ -19,8 +20,10 @@ Book.delete_all
 end
 
 25.times do
-  Book.create(
-    author: Faker::Book.author
+  Author.create(
+    author: Faker::Author.first_name,
+    author: Faker::Author.last_name,
+    author: Faker::Author.age.between(14,70)
   )
 end
 =begin
