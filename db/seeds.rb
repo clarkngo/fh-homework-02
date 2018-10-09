@@ -21,9 +21,9 @@ end
 
 25.times do
   Author.create(
-    author: Faker::Author.first_name,
-    author: Faker::Author.last_name,
-    author: Faker::Author.age.between(14,70)
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    age: Faker::Number.between(14,70)
   )
 end
 =begin
