@@ -28,6 +28,13 @@ end
 end
 
 =begin
+Book.each do |book|
+  Authorship.create(
+    book_id: Book.book.id.sample
+    author
+  )
+end
+
 Book.each do |book| 
   book = Book.author_id.order("RANDOM()")
   Book.
