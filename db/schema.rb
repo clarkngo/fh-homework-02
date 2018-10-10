@@ -24,10 +24,12 @@ ActiveRecord::Schema.define(version: 2018_10_08_033756) do
   end
 
   create_table "authorships", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "author_id"
+    t.bigint "book_id"
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_authorships_on_author_id"
+    t.index ["book_id"], name: "index_authorships_on_book_id"
   end
 
   create_table "books", force: :cascade do |t|
