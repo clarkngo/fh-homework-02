@@ -26,6 +26,7 @@ end
     age: Faker::Number.between(14,70)
   )
 end
+
 =begin
 Book.each do |book| 
   book = Book.author_id.order("RANDOM()")
