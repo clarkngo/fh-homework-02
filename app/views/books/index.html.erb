@@ -4,10 +4,11 @@
     <h1><%= link_to book.title, book_path(book) %></h1>
     <i><%=  %></i>Author(s)<br />
     <% Authorship.all.each do |authorship| %>
+      <% if authorship.book_id == book.id %>
+       <%= Author.find(authorship.author_id).full_name %>
+      <% end %>
     <% end %>
-    <ul>
-      <li></li>
-    </ul>
+
     <ul>
       <li>Classification: <%= book.classification %></li>
       <li>Genre: <%= book.genre %></li>
