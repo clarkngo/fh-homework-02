@@ -8,6 +8,9 @@
 
 Book.delete_all
 Author.delete_all
+Authorship.delete_all
+
+book_list = []
 
 50.times do
   Book.create(
@@ -27,14 +30,26 @@ end
   )
 end
 
-=begin
-Book.each do |book|
+book_list=[]
+
+Book.all.each do |book|
+  book_list.push(book)
+end
+
+author_id_list=[]
+
+Author.ids.each do |author_id|
+  author_id_list.push(author_id)
+end
+
+Book.all.each do |book|
   Authorship.create(
-    book_id: Book.book.id.sample
-    author
+    book_id: book.id,
+    author_id: author_id_list.sample
   )
 end
 
+=begin
 Book.each do |book| 
   book = Book.author_id.order("RANDOM()")
   Book.
