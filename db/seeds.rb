@@ -48,10 +48,3 @@ Book.all.each do |book|
     author_id: author_id_list.sample
   )
 end
-
-=begin
-Book.each do |book| 
-  book = Book.author_id.order("RANDOM()")
-  Book.
-end
-=end
