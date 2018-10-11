@@ -1,5 +1,8 @@
 class AuthorshipsController < ApplicationController
 
+  def index
+    @authorships = Authorship.all
+  end
 
   def new 
     @authorship = Authorship.new
