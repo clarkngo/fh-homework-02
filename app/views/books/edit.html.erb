@@ -7,7 +7,6 @@
         <li><%= p.input :first_name %></li> 
         <li><%= p.input :last_name %></li> 
         <li><%= p.input :age_name %></li>
-      <% end %>
     </ul>
     <%= f.input :genre %>
     Classification: <%= f.select( :classification, options_for_select(['General Works - encyclopedias',
@@ -36,5 +35,6 @@
     <%= f.input :year %>
     <br />
     <%= f.submit 'Update', class: 'btn btn-primary' %>
+  <% end %>
   <% end %>
 </div>
