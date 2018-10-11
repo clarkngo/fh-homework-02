@@ -10,7 +10,7 @@
       <% end %>
     </ul>
     <%= f.input :genre %>
-    <%= f.select( :classification, options_for_select(['General Works - encyclopedias',
+    Classification: <%= f.select( :classification, options_for_select(['General Works - encyclopedias',
    'Philosophy, Psychology, Religion',
    'History - Auxiliary Sciences',
    'History (except American)',
@@ -31,7 +31,8 @@
    'Military',
    'Naval Science',
    'Bibliography and Library Science'])) %>
-    <%= f.select :book_type, options_for_select(['Fiction','Nonfiction']) %>
+   <br />
+   Fiction: <%= f.select :book_type, options_for_select(['Fiction','Nonfiction']) %>
     <%= f.input :year %>
     <br />
     <%= f.submit 'Update', class: 'btn btn-primary' %>
