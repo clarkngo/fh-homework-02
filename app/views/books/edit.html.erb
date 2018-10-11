@@ -2,11 +2,13 @@
   <h1>Edit Your Book</h1>
   <%= simple_form_for @book do |f| %>
     <%= f.input :title %>
-    <% Authorship.all.each do |authorship| %>
-      <% if authorship.book_id == @book.id %>
-      <%= Author.find(authorship.author_id).full_name %>
+    <ul><strong>Author</strong>
+      <%= simple_form_for :author do |p| %>
+        <li><%= p.input :first_name %></li> 
+        <li><%= p.input :last_name %></li> 
+        <li><%= p.input :age_name %></li>
       <% end %>
-    <% end %> 
+    </ul>
     <%= f.input :genre %>
     <%= f.select( :classification, options_for_select(['General Works - encyclopedias',
    'Philosophy, Psychology, Religion',

@@ -2,7 +2,13 @@
   <h1>Enter Your Book Details</h1>
   <%= simple_form_for @book do |f| %>
     <%= f.input :title %>
-    <%#= comment out author input %> 
+    <ul><strong>Author</strong>
+      <%= simple_form_for :author do |p| %>
+        <li><%= p.input :first_name %></li> 
+        <li><%= p.input :last_name %></li> 
+        <li><%= p.input :age_name %></li>
+      <% end %>
+    </ul>
     <%= f.input :genre %>
     <%= f.select( :classification, options_for_select(['General Works - encyclopedias',
    'Philosophy, Psychology, Religion',
