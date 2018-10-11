@@ -1,13 +1,13 @@
+<h2>All Authors</h2>
+<% @authors.each do |author| %>
+  <div class="booyah-box col-10 offset-1">
+    <ul>  
+      <li>First name: <%= author.first_name %></li>
+      <li>Last name: <%= author.last_name %></li>
+      <li>Age: <%= author.age %></li>
+    </ul>
+  </div>
 
-  <% @authors.each do |author| %>
-    <div class="booyah-box col-10 offset-1">
-      <ul>  
-        <li>First name: <%= author.first_name %></li>
-        <li>Last name: <%= author.last_name %></li>
-        <li>Age: <%= author.age %></li>
-      </ul>
-    </div>
+  <hr />
 
-    <hr />
-
-  <% end %>   
+<% end %>   

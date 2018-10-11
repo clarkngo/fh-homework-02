@@ -1,17 +1,16 @@
+<h2>All Books</h2>
+<% @books.each do |book| %>
+  <div class="booyah-box col-10 offset-1">
+    <h1><%= link_to book.title, book_path(book) %></h1>
+    <i><%=  %></i>Author(s)<br />
 
-  <% @books.each do |book| %>
-    <div class="booyah-box col-10 offset-1">
-      <h1><%= link_to book.title, book_path(book) %></h1>
-      <i><%=  %></i>Author(s)<br />
+    <ul>
+      <li><%= book.classification %></li>
+      <li><%= book.genre %></li>
+      <li><%= book.book_type %></li>
+      <li><%= book.year %></li>
+    </ul>
+  </div>
 
-      <ul>
-        <li><%= book.classification %></li>
-        <li><%= book.genre %></li>
-        <li><%= book.book_type %></li>
-        <li><%= book.year %></li>
-      </ul>
-    </div>
-
-    <hr />
-
-  <% end %>   
+  <hr />
+<% end %>   
