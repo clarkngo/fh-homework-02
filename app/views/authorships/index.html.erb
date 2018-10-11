@@ -1,0 +1,12 @@
+
+  <% @authorships.each do |authorship| %>
+    <div class="booyah-box col-10 offset-1">
+      <ul>  
+        <li>Book id: <%= authorship.book_id %></li>
+        <li>Author id: <%= authorship.author_id %></li>
+      </ul>
+    </div>
+
+    <hr />
+
+  <% end %>   
