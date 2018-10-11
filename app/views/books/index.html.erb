@@ -2,7 +2,7 @@
 <% @books.each do |book| %>
   <div class="booyah-box col-10 offset-1">
     <h1><%= link_to book.title, book_path(book) %></h1>
-    <i><%=  %></i>Author(s)<br />
+    <i><strong>Author(s)</strong></i><br />
     <% Authorship.all.each do |authorship| %>
       <% if authorship.book_id == book.id %>
        <%= Author.find(authorship.author_id).full_name %>
