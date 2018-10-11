@@ -12,7 +12,6 @@ class BooksController < ApplicationController
 # search for book by [title, author, classification, genre, type]
   
   def index
-    @authorships = Authorship.all
     @books = Book.all
     if params[:search]
       @search_term = params[:search]
