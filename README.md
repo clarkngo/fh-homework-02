@@ -1,6 +1,6 @@
-# <Project Name>
+# fh-homework-02
 
-<Project Description>
+A repository of books that you can search!
 
 This app powers <Project Name> located [here](Heroku Project URL)
 
@@ -64,12 +64,12 @@ $ rails s
 
 Bug reports and feature requests can be filed with the rest for the Ruby on Rails project here:
 
-* [File Bug Reports and Features](https://github.com/<user-name>/<project-repo>/issues)
+* [File Bug Reports and Features](https://github.com/clarkngo/fh-homework-02/issues)
 
 ## License
 
-<Project Name> is released under the [MIT license](https://mit-license.org).
+fh-homework-02 is released under the [MIT license](https://mit-license.org).
 
 ## Copyright
 
-copyright:: (c) Copyright 2017 <First Name> <Last Name>. All Rights Reserved.
+copyright:: (c) Copyright 2017 Clark Jason Ngo. All Rights Reserved.
