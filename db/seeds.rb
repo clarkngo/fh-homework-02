@@ -30,21 +30,12 @@ end
   )
 end
 
-book_list=[]
+book_ids = Book.pluck(:id)
+author_ids = Author.pluck(:id)
 
-Book.all.each do |book|
-  book_list.push(book)
-end
-
-author_id_list=[]
-
-Author.ids.each do |author_id|
-  author_id_list.push(author_id)
-end
-
-Book.all.each do |book|
+book_ids.each do |book_id|
   Authorship.create(
-    book_id: book.id,
-    author_id: author_id_list.sample
+    book_id: book_id,
+    author_id: author_ids.sample
   )
 end

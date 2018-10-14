@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
 # update book
 
-# delete book
+# delete book 
 
 # list all books
 
@@ -12,18 +12,13 @@ class BooksController < ApplicationController
 # search for book by [title, author, classification, genre, type]
   
   def index
-    @books = Book.all
-    if params[:search]
-      @search_term = params[:search]
-      @search_by = params[:search_by]
-      @books = @books.search(@search_by, @search_term)
-    end
+    @books = Book.search(params[:keyword])
   end
 
   def new 
     @book = Book.new
   end
-  
+
   def create
     @book = Book.create(book_params)
     if @book.invalid?
