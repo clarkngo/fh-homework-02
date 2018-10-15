@@ -1,9 +1,24 @@
 class Book < ApplicationRecord
+  has_many :authorships
+  has_many :authors, :through => :authorships
+
   validates :title, presence: true
   validates :genre, presence: true
   validates :classification, presence: true
   validates :book_type, presence: true
   validates :year, presence: true
+
+=begin
+  def self.search(search_by, search_term)
+    where("LOWER(#{search_by}) LIKE :search_term",
+    search_term: "%#{search_term.downcase}%")
+  end
+=end
+
+  def self.search(search)
+    # Title is for the above case, the OP incorrectly had 'name'
+    where("title LIKE ?", "%#{search}%")
+  end
 
   def self.query(keyword)
     Book.where(query_string, 

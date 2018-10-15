@@ -9,13 +9,24 @@ class BooksController < ApplicationController
 
 # show book details
 
-# search for book by [title, author, classification, genre, type]
-  
+# search for book by [title, author, classification, genre, type
+=begin
   def index
-    @books = Book.all
-    # @books = Book.search(params[:keyword])
+    if params[:search]
+      @books = Book.search(params[:search])
+    else
+      @books = Book.all
+    end
   end
-
+=end
+  def index
+    if params[:keyword]
+      @books = Book.where('title LIKE ?', "%#{params[:keyword]}%")
+    else
+      @books = Book.all
+    end
+  end
+  
   def new 
     @book = Book.new
   end
@@ -59,5 +70,6 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title, :author, :genre, :classification, :book_type, :year)
   end
 
+  
 
 end
