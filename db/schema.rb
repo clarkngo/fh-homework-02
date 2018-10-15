@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_15_064715) do
+ActiveRecord::Schema.define(version: 2018_10_15_214021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 2018_10_15_064715) do
     t.string "classification"
     t.string "book_type"
     t.integer "year"
-    t.string "sub_title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sub_title"
   end
 
 end
