@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.1'
-
 # generate fake data
 gem 'faker', '~> 1.9.1'
 # form submission
