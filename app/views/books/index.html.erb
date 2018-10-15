@@ -1,33 +1,33 @@
-
-  
-
-  <% @books.collect{|b| [b.title]}.transpose.each do |line| %>
+<h2>All Books</h2>
+<h3>Total Books: <%= Book.count %></h3>
+<div class="booyah-box col-10 offset-1">
+  <table id="table-header">
     <tr>
-      <% line.each do |cell| %>
-        <td><%= cell %></td> |
-      <% end %>
+      <th>Title</th>
+      <th>Author(s)</th>
+      <th>Genre</th>
+      <th>Classification</th>
+      <th>Type</th>
+      <th>Year</th>
     </tr>
-  <% end %>
-  
-  <% @books.each do |book| %>
-    <div class="booyah-box col-10 offset-1">
-        <ul><h1><%= link_to book.title, book_path(book) %></h1>
-          <li>Author(s): 
-            <% Authorship.all.each do |authorship| %>
-              <% if authorship.book_id == book.id %>
-              <%= Author.find(authorship.author_id).full_name %>
-              <br />
-              <% end %>
-            <% end %>
-          </li>
-          <li>Genre: <%= book.genre %></li>
-          <li>Classification: <%= book.classification %></li>
-          <li>Type: <%= book.book_type %></li>
-          <li>Year: <%= book.year %></li>
-        </ul>
-      </table>
-    </div>
+  </table>
+    <% @books.each do |book| %>
+  <table id="table-contents">
+    <tr>
+      <th><%= link_to book.title, book_path(book) %></th>
+      <th>
+        <% Authorship.all.each do |authorship| %>
+          <% if authorship.book_id == book.id %>
+          <%= Author.find(authorship.author_id).full_name %>
+          <% end %>
+        <% end %>
+      </th>
+      <th><%= book.genre %></th>
+      <th><%= book.classification %></th>
+      <th><%= book.book_type %></th>
+      <th><%= book.year %></th>
+    </tr>
+  </table>
+</div>
 
-    <hr />
-
-  <% end %>   
+<% end %>   
