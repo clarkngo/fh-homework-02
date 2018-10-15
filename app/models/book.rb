@@ -5,9 +5,12 @@ class Book < ApplicationRecord
   validates :book_type, presence: true
   validates :year, presence: true
 
-  def self.search(search_by, search_term)
-    where("LOWER(#{search_by}) LIKE :search_term", 
-    search_term: "%#{search_term.downcase}%")
+  def self.query(keyword)
+    
+  end
+
+  def keyword
+
   end
 
   def self.classifications
