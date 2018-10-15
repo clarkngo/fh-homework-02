@@ -6,11 +6,31 @@ class Book < ApplicationRecord
   validates :year, presence: true
 
   def self.query(keyword)
-    
+    Book.where(query_string, 
+      "#{keyword}", "#{keyword}",
+      "#{keyword}", "#{keyword}",
+      "#{keyword}", "#{keyword}",
+      "#{keyword}", "#{keyword}"
+      )
   end
 
-  def keyword
-
+  def query_string
+    fields += 'title ILIKE ?'
+    fields += ' OR '
+    fields += 'genre ILIKE ?'
+    fields += ' OR '
+    fields += 'classfication ILIKE ?'
+    fields += ' OR '
+    fields += 'book_type ILIKE ?'
+    fields += ' OR '
+    fields += 'year ILIKE ?'
+    fields += ' OR '
+    fields += 'first_name ILIKE ?'
+    fields += ' OR '
+    fields += 'last_name ILIKE ?'
+    fields += ' OR '
+    fields += 'age ILIKE ?'
+    fields
   end
 
   def self.classifications
