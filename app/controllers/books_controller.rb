@@ -12,7 +12,8 @@ class BooksController < ApplicationController
 # search for book by [title, author, classification, genre, type]
   
   def index
-    @books = Book.search(params[:keyword])
+    @books = Book.all
+    # @books = Book.search(params[:keyword])
   end
 
   def new 
