@@ -8,11 +8,11 @@
       <li>Age: <%= author.age %></li>
     </ul>
 
-  <i><strong>Book(s)</strong></i><br />
+    <i><strong>Book(s)</strong></i><br />
     <% Authorship.all.each do |authorship| %>
       <% if authorship.author_id == author.id %>
-       <%= Book.find(authorship.book_id).title %>
-       <br />
+        <%= Book.find(authorship.book_id).title %>
+        <br />
       <% end %>
     <% end %>
   
