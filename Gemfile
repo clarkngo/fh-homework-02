@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# fonts and icons
+gem "font-awesome-rails", '~> 4.7.0.4'
 # bootstrap gems
 gem 'popper_js', '~> 1.11.1'
 gem 'bootstrap', '4.0.0.alpha6'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3.3'
 # generate fake data
 gem 'faker', '~> 1.9.1'
 # form submission

@@ -1,7 +1,8 @@
-<h2>All Authors</h2>
-<h3>Total Authors: <%= Author.count %></h3>
+
 <div class="booyah-box col-10 offset-1">
-  <table id="table-header">
+  <h2>All Authors</h2>
+  <h3>Total Authors: <%= Author.count %></h3>
+  <table class="table-header">
     <tr>
       <th>Author Name</th>
       <th>Author Age</th>
@@ -9,7 +10,7 @@
     </tr>
   </table>
   <% @authors.each do |author| %>
-    <table id="table-contents">
+    <table class="table-contents">
       <tr>  
         <th><h2><%= link_to author.full_name, author_path(author) %></h2></th>
         <th><h2>Age: <%= author.age %></h2></th>

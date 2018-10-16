@@ -3,7 +3,7 @@
   <p>Author:           
     <% Authorship.all.each do |authorship| %>
       <% if authorship.book_id == @book.id %>
-        <%= Author.find(authorship.author_id).full_name %>
+        <%= link_to Author.find(authorship.author_id).full_name, author_path(authorship) %>
       <% end %>
     <% end %>
   </p>

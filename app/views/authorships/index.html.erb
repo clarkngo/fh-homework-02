@@ -1,18 +1,18 @@
-<h2>All Authorships</h2>
-<h3>Total Authorships: <%= Authorship.count %></h3>
-  <div class="booyah-box col-10 offset-1">
-    <table id="table-header">
+<div class="booyah-box col-10 offset-1">
+  <h2>All Authorships</h2>
+  <h3>Total Authorships: <%= Authorship.count %></h3>
+  <table class="table-header">
+    <tr>
+      <th>Book Title</th>
+      <th>Author Name</th>
+    </tr>
+  </table>
+  <% @authorships.each do |authorship| %>
+    <table class="table-contents">   
       <tr>
-        <th>Book Title</th>
-        <th>Author Name</th>
+        <th><%= link_to Book.find(authorship.book_id).title, book_path(authorship) %></th>
+        <th><%= link_to Author.find(authorship.author_id).full_name, author_path(authorship) %></th>
       </tr>
     </table>
-    <% @authorships.each do |authorship| %>
-      <table>  
-        <tr>
-          <th><%= link_to Book.find(authorship.book_id).title, book_path(authorship) %></th>
-          <th><%= link_to Author.find(authorship.author_id).full_name, author_path(authorship) %></th>
-        </tr>
-      </table>
-    <% end %>   
-  </div>
+  <% end %>   
+</div>

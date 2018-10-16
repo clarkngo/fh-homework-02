@@ -1,5 +1,8 @@
 <div class="booyah-box col-10 offset-1">
   <h1>Author: <%= @author.full_name %></h1> 
+  <p>Last Name: <%= @author.last_name %></p> 
+  <p>First Name: <%= @author.first_name %></p> 
+  <p>Age: <%= @author.age %></p> 
   <p>Book(s):      
     <% Authorship.all.each do |authorship| %>
       <% if authorship.book_id == @author.id %>

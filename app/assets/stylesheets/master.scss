@@ -1,4 +1,9 @@
 @import "bootstrap";
+@import "font-awesome";
+
+body {
+	background-image: image_url('bg_paper.png')
+}
 
 table {
 	border: 1px solid #ccc;
@@ -16,13 +21,13 @@ table td {
 	
 }
 
-#table-header {
+.table-header {
   background-color: #4CAF50;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
 }
 
-#table-contents {
+.table-contents {
   font-size: 12px;
 }
 
@@ -36,6 +41,27 @@ table td {
   margin-top: 10px;
   margin-bottom: 15px;
   padding: 20px;
+}
+
+.navbar {
+	background: image_url('nav_bar_books.jpg');  
+	box-shadow: 0px 1px 3px #2a2a2a;
+}
+
+.navbar-brand {
+  color: white;  
+	background-color: rgba(0, 255, 0, 0.5);	
+	margin: 5px;
+	padding: 5px;
+	border-top-style: dotted;
+	border-right-style: solid;
+	border-bottom-style: dotted;
+	border-left-style: solid;
+	border-width: 5px;
+}
+
+.nav-link {
+  color: white; 
 }
 
 ul {
