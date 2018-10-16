@@ -1,0 +1,23 @@
+<div class="booyah-box col-10 offset-1">
+  <h1>Author: <%= @author.full_name %></h1> 
+  <p>Book(s):      
+    <% Authorship.all.each do |authorship| %>
+      <% if authorship.book_id == @author.id %>
+        <%= link_to Book.find(authorship.book.id).title, book_path(authorship) %>
+      <% end %>
+    <% end %>
+  </p>
+
+
+  <br />
+
+  <div class="float-right">
+    <%= link_to 'Edit', edit_author_path(@author), class: 'btn btn-primary' %>
+ 
+
+    <%= link_to 'Destroy', author_path(@author), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
+
+  </div>
+
+
+</div>

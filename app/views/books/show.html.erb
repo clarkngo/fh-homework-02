@@ -1,6 +1,12 @@
 <div class="booyah-box col-10 offset-1">
-  <h1>Title: <%= @book.title %></h1><br />
-  <br/>
+  <h1>Title: <%= @book.title %></h1> 
+  <p>Author:           
+    <% Authorship.all.each do |authorship| %>
+      <% if authorship.book_id == @book.id %>
+        <%= Author.find(authorship.author_id).full_name %>
+      <% end %>
+    <% end %>
+  </p>
   <p>Genre: <%= @book.genre %></p>
   <p>Classification: <%= @book.classification %></p>  
   <p>Type: <%= @book.book_type %></p>
