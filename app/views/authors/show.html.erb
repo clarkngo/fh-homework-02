@@ -6,7 +6,7 @@
   <p>Book(s):      
     <% Authorship.all.each do |authorship| %>
       <% if authorship.book_id == @author.id %>
-        <%= link_to Book.find(authorship.book.id).title, book_path(authorship) %>
+        <%= link_to Book.find(authorship.book.id).title, book_path(authorship), class: 'link' %>
       <% end %>
     <% end %>
   </p>

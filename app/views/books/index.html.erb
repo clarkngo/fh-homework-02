@@ -1,6 +1,6 @@
 <div class="booyah-box col-10 offset-1">
-  <h2>All Books</h2>
-  <h3>Total Books: <%= Book.count %></h3>
+  <h2><i>All Books</i></h2>
+  <h3><i>Total Books: <%= Book.count %></i></h3>
   <table class="table-header">
     <tr>
       <th>Title</th>
@@ -14,11 +14,11 @@
   <% @books.each do |book| %>
     <table class="table-contents">
       <tr>
-        <th><%= link_to book.title, book_path(book) %></th>
+        <th><%= link_to book.title, book_path(book), class: 'link' %></th>
         <th>
           <% Authorship.all.each do |authorship| %>
             <% if authorship.book_id == book.id %>
-              <%= link_to Author.find(authorship.author_id).full_name, author_path(authorship)  %>
+              <%= link_to Author.find(authorship.author_id).full_name, author_path(authorship), class: 'link' %>
             <% end %>
           <% end %>
         </th>

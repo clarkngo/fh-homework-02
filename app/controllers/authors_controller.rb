@@ -20,10 +20,31 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
   end
 
+  def edit
+    @author = Author.find(params[:id])
+  end
+
+  def update
+    @author = Author.find(params[:id])
+    @author.update_attributes(author_params)
+    if @author.valid?
+      redirect_to author_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @author = Author.find(params[:id])
+
+    @author.destroy
+    redirect_to author_path
+  end
+
   private 
 
   def author_params
-    params.require(:author).permit(:first_name, :last_name)
+    params.require(:author).permit(:first_name, :last_name, :age)
   end
 
   def full_name

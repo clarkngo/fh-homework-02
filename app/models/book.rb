@@ -15,11 +15,16 @@ class Book < ApplicationRecord
   end
 =end
 
-  def self.search(search)
-    # Title is for the above case, the OP incorrectly had 'name'
-    where("title LIKE ?", "%#{search}%")
+  def self.search(term)
+    if term
+      where("title LIKE ?", "%#{term}%")
+    else
+      all
+    end
   end
 
+
+=begin
   def self.query(keyword)
     Book.where(query_string, 
       "#{keyword}", "#{keyword}",
@@ -47,7 +52,7 @@ class Book < ApplicationRecord
     fields += 'age ILIKE ?'
     fields
   end
-
+=end
   def self.classifications
     [
       'General Works - encyclopedias',
