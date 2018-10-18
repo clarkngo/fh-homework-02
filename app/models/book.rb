@@ -8,51 +8,41 @@ class Book < ApplicationRecord
   validates :book_type, presence: true
   validates :year, presence: true
 
-=begin
-  def self.search(search_by, search_term)
-    where("LOWER(#{search_by}) LIKE :search_term",
-    search_term: "%#{search_term.downcase}%")
-  end
-=end
-
   def self.search(term)
+    q = "%#{term}%"
+
     if term
-      where("title LIKE ?", "%#{term}%")
+      .joins(:books, :authorships).where(
+        query_string,
+       q, q, q, q)
     else
       all
     end
   end
 
-
-=begin
-  def self.query(keyword)
-    Book.where(query_string, 
-      "#{keyword}", "#{keyword}",
-      "#{keyword}", "#{keyword}",
-      "#{keyword}", "#{keyword}",
-      "#{keyword}", "#{keyword}"
-      )
-  end
-
-  def query_string
+  def self.query_string
+    fields = ""
     fields += 'title ILIKE ?'
     fields += ' OR '
     fields += 'genre ILIKE ?'
     fields += ' OR '
-    fields += 'classfication ILIKE ?'
+    fields += 'classification ILIKE ?'
     fields += ' OR '
     fields += 'book_type ILIKE ?'
+=begin
     fields += ' OR '
-    fields += 'year ILIKE ?'
+    fields += 'year = ?'
+
     fields += ' OR '
     fields += 'first_name ILIKE ?'
     fields += ' OR '
     fields += 'last_name ILIKE ?'
     fields += ' OR '
     fields += 'age ILIKE ?'
+=end
     fields
   end
-=end
+  
   def self.classifications
     [
       'General Works - encyclopedias',

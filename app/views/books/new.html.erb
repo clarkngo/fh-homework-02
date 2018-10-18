@@ -5,7 +5,7 @@
     <%= f.input :genre %>
     Classification: <%= f.select :classification, options_for_select(Book.classifications) %>
     <br />
-    Type: <%= f.select :type_book, options_for_select(Book.type_books) %>
+    Type: <%= f.select :book_type, options_for_select(Book.book_types) %>
     <%= f.input :year %>
     <br />
     <%= f.submit 'Create', class: 'btn btn-primary' %>
