@@ -36,11 +36,17 @@ class AuthorsController < ApplicationController
 
   def destroy
     @author = Author.find(params[:id])
-
+    Authorship.all.each do |authorship|
+      if authorship.author_id == @author.id
+        Book.find(authorship.book_id).destroy
+        authorship.destroy
+      end
+    end
     @author.destroy
-    redirect_to author_path
+    redirect_to authors_path
   end
 
+  
   private 
 
   def author_params

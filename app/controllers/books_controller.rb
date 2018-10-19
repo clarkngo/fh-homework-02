@@ -55,7 +55,11 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-
+    Authorship.all.each do |authorship|
+      if authorship.book_id == @book.id
+        authorship.destroy
+      end
+    end
     @book.destroy
     redirect_to root_path
   end

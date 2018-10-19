@@ -9,12 +9,18 @@ class Book < ApplicationRecord
   validates :year, presence: true
 
   def self.search(term)
-    q = "%#{term}%"
+    year_term = nil
 
     if term
-      .joins(:books, :authorships).where(
-        query_string,
-       q, q, q, q)
+      if term.length == 4 && term.to_i != 0
+        year_term = term.to_i
+      end
+      
+      q = "%#{term}%"
+      
+      where(query_string, 
+            q, q, q, q, 
+            year_term)
     else
       all
     end
@@ -29,17 +35,8 @@ class Book < ApplicationRecord
     fields += 'classification ILIKE ?'
     fields += ' OR '
     fields += 'book_type ILIKE ?'
-=begin
     fields += ' OR '
     fields += 'year = ?'
-
-    fields += ' OR '
-    fields += 'first_name ILIKE ?'
-    fields += ' OR '
-    fields += 'last_name ILIKE ?'
-    fields += ' OR '
-    fields += 'age ILIKE ?'
-=end
     fields
   end
   
