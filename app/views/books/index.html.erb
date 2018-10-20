@@ -16,9 +16,7 @@
       <tr>
         <th><%= link_to book.title, book_path(book), class: 'link' %></th>
         <th>
-          <% authorships = Authorship.includes(:book_id, :author_id) %>
-
-          <% authorships.each do |authorship| %>
+          <% Authorship.all.each do |authorship| %>
             <% if authorship.book_id == book.id %>
               <%= link_to Author.find(authorship.author_id).full_name, author_path(Author.find(authorship.author_id)), class: 'link' %>
             <% end %>
@@ -32,4 +30,3 @@
     </table>
   <% end %> 
 </div>
-  
