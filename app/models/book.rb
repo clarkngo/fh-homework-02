@@ -19,7 +19,7 @@ class Book < ApplicationRecord
       q = "%#{term}%"
       
       includes(:authors).where(query_string, 
-            q, q, q, q, q, q, 
+            q, q, q, q, q, q, q,
             year_term).references(:authors)
     else
       all
@@ -39,6 +39,8 @@ class Book < ApplicationRecord
     fields += 'classification ILIKE ?'
     fields += ' OR '
     fields += 'book_type ILIKE ?'
+    fields += ' OR '
+    fields += 'sub_title ILIKE ?'
     fields += ' OR '
     fields += 'year = ?'
     fields

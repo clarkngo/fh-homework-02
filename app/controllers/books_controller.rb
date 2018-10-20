@@ -1,26 +1,8 @@
 class BooksController < ApplicationController
-# add book
 
-# update book
-
-# delete book 
-
-# list all books
-
-# show book details
-
-# search for book by [title, author, classification, genre, type
-=begin
-  def index
-    if params[:search]
-      @books = Book.search(params[:search])
-    else
-      @books = Book.all
-    end
-  end
-=end
   def index
     @books = Book.search(params[:term])
+    @author = Author.includes(:full_name)
   end
   
   def new 
