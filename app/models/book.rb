@@ -14,9 +14,11 @@ class Book < ApplicationRecord
   
     def self.search(term)
     year_term = nil
-    
+
     if term
-      year_argument(term)
+      if term.length == 4 && term.to_i != 0
+        year_term = term.to_i
+      end
       
       q = "%#{term}%"
       
@@ -80,16 +82,4 @@ class Book < ApplicationRecord
       'Nonfiction'
     ]  
   end
-
-  private 
-
-  def year_argument(target_term)
-    if target_term.length == 4 && target_term.to_i != 0
-      year_term = target_term.to_i
-      year_term
-    else
-      target_term
-    end
-  end
-
 end
