@@ -13,22 +13,24 @@ class Book < ApplicationRecord
   end
 
   def self.search(term)
-    year_term = nil
 
     if term
-      if term.length == 4 && term.to_i != 0
-        year_term = term.to_i
-      end
       
       q = "%#{term}%"
       
       includes(:authors).where(query_string, 
             q, q, q, q, q, q, q,
-            year_term).references(:authors)
+            year_argument(term)).references(:authors)
     else
       all
     end
   end
+
+  def self.year_argument(term)
+    if term.length == 4 && term.to_i != 0
+      term.to_i
+    end
+  end 
 
   def self.query_string
     fields = ""
