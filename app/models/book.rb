@@ -8,8 +8,8 @@ class Book < ApplicationRecord
   validates :book_type, presence: true
   validates :year, presence: true
   
-  def book_info
-    authors.map {|author| author.full_name }.join(", ")
+  def book_info  
+    "#{self.title} by #{authors.map {|author| author.full_name }.join(", ")}"
   end
 
   def self.search(term)

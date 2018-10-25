@@ -7,11 +7,10 @@
       <th class="table-year">Year</th>
       <th></th>
     </tr>
-  </table>
   <% @books.each do |book| %>
     <table class="table-contents">
       <tr>
-        <th class="table-title"><%= book.title %> by <%= book.book_info %></th>
+        <th class="table-title"><%= book.book_info %></th>
         <th class="table-year"><%= book.year %></th>
         <th>
           <%= link_to 'Show', book_path(book), class: 'btn btn-primary' %>
@@ -22,3 +21,4 @@
     </table>
   <% end %> 
 </div>
+</table>
