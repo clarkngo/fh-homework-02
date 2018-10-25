@@ -16,12 +16,7 @@
       <tr>
         <th><%= link_to book.title, book_path(book), class: 'link' %></th>
         <th>
-          <% authorships = Authorship.includes(:book).all %>
-          <% authorships.each do |authorship| %>
-            <% if authorship.book_id == book.id %>
-              <%= link_to Author.find(authorship.author_id).full_name, author_path(Author.find(authorship.author_id)), class: 'link' %>
-            <% end %>
-          <% end %>
+          <% book.authors %>
         </th>
         <th><%= book.genre %></th>
         <th><%= book.classification %></th>
