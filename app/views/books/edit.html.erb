@@ -2,12 +2,14 @@
   <h1>Edit Your Book</h1>
   <%= simple_form_for @book do |f| %>
     <%= f.input :title %>
+    <%= f.input :authors %>
     <%= f.input :genre %>
     Classification: <%= f.select :classification, options_for_select(Book.classifications) %>
     <br />
     Type: <%= f.select :book_type, options_for_select(Book.book_types) %>
     <%= f.input :year %>
     <br />
+    <%= f.input :sub_title %>
     <%= f.submit 'Update', class: 'btn btn-primary' %>
   <% end %>
 </div>

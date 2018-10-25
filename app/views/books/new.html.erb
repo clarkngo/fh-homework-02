@@ -8,6 +8,7 @@
     Type: <%= f.select :book_type, options_for_select(Book.book_types) %>
     <%= f.input :year %>
     <br />
+    <%= f.input :sub_title %>
     <%= f.submit 'Create', class: 'btn btn-primary' %>
   <% end %>
 </div>

@@ -34,8 +34,10 @@ book_ids = Book.pluck(:id)
 author_ids = Author.pluck(:id)
 
 book_ids.each do |book_id|
-  Authorship.create(
-    book_id: book_id,
-    author_id: author_ids.sample
-  )
+  rand(1..4).times do
+    Authorship.create!(
+      book_id: book_id,
+      author_id: author_ids.sample
+    )
+  end
 end

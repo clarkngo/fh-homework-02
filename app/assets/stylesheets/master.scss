@@ -17,7 +17,6 @@ table {
 table th,
 table td {
 	padding: 1.625em;
-	text-align: center;
 	
 }
 
@@ -28,7 +27,15 @@ table td {
 }
 
 .table-contents {
-  font-size: 12px;
+	font-size: 12px;
+}
+
+.table-title {
+	text-align: left;
+}
+
+.table-year {
+	text-align: center;
 }
 
 .booyah-box {
