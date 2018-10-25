@@ -16,7 +16,9 @@
       <tr>
         <th><%= link_to book.title, book_path(book), class: 'link' %></th>
         <th>
-          <% book.authors %>
+          <%= book.authors.each do |author| %>
+            <%= link_to author.full_name, author_path(author) %>
+          <% end %> 
         </th>
         <th><%= book.genre %></th>
         <th><%= book.classification %></th>

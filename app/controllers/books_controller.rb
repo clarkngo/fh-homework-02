@@ -2,7 +2,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.search(params[:term])
-    @author = Author.includes(:full_name)
   end
   
   def new 

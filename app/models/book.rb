@@ -8,19 +8,7 @@ class Book < ApplicationRecord
   validates :book_type, presence: true
   validates :year, presence: true
   
-  
-    def self.authors
-      authors = []
-      authorships = Authors.includes(:book).all
-      authorships.each do |authorship|
-        if authorship.book_id == book.id
-          authors << Author.find(authorship.author_id).full_name
-        end
-      end
-      authors
-    end
-  
-    def self.search(term)
+  def self.search(term)
     year_term = nil
 
     if term
