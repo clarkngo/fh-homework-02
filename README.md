@@ -18,6 +18,7 @@ This app powers <Project Name> located [here](Heroku Project URL)
 ## Create Account in GitHub and Heroku
 
 <a href="https://github.com/">GitHub</a>
+
 <a href="https://www.heroku.com/">Heroku</a>
 
 ## Setup your development environment (Mac)
