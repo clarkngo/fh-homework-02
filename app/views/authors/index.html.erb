@@ -1,0 +1,29 @@
+
+<div class="booyah-box col-10 offset-1">
+  <h2><i>All Authors</i></h2>
+  <h3><i>Total Authors: <%= Author.count %></i></h3>
+  <table class="table-header">
+    <tr>
+      <th>Author Name</th>
+      <th>Author Age</th>
+      <th>Books</th>
+    </tr>
+  </table>
+  <% @authors.each do |author| %>
+    <table class="table-contents">
+      <tr>  
+        <th><h2><%= link_to author.full_name, author_path(author), class: 'link' %></h2></th>
+        <th><h2>Age: <%= author.age %></h2></th>
+        <th>
+          <ul>
+            <% Authorship.all.each do |authorship| %>
+              <% if authorship.author_id == author.id %>
+                <li><%= link_to Book.find(authorship.book_id).title, book_path(authorship), class: 'link' %></li>
+              <% end %>
+            <% end %>
+          </ul>
+        </th>
+      </tr>
+    </table>
+  <% end %>   
+</div>

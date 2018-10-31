@@ -11,54 +11,37 @@
 
 
   <body>
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="nav-bar-toggler-icon"></span>
-      <%= link_to 'FhHomework02', root_path, class: 'navbar-brand'%>
-      </button>
-      
-
-      <div class="navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-          <li class="nav-item">
-
-            <%= form_for "", url: books_path, role: "search", method: :get do %>
-            <%= label_tag("Search by:") %>
-            <%= select_tag :search_by, options_for_select(
-            [['Title', 'title'], ['Author', 'author'], ['Classification', 'classification'],
-             ['Genre', 'genre'], ['Type', 'type_book']]) %>
-            <%= text_field_tag :search, @search_term, placeholder: "Search..." %>
-            <%= submit_tag("Search") %>
-            <% end %>    
-
-          </li>
-        </ul>
-      </div>
-
-      <div class="navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-          <li class="nav-item">
-            <%= link_to books_path, class: 'nav-link' do %>
-            <i class="fa fa-plus-circle"></i>
-              Show All Books
-            <% end %>
-          </li>
-        </ul>
-      </div>
-
-      <div class="navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-          <li class="nav-item">
-            <%= link_to new_book_path, class: 'nav-link' do %>
-            <i class="fa fa-plus-circle"></i>
-              New Book
-            <% end %>
-          </li>
-        </ul>
-      </div>
+    <nav class="navbar"> 
+      <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <li class="nav-item">
+          <button class="navbar-toggler" type="button">
+            <%= link_to 'All books', root_path, class: 'navbar-brand'%>
+          </button>
+        </li>
+        <li class="nav-item"> 
+          <button class="navbar-toggler" type="button">
+            <%= link_to 'All authors', authors_path, class: 'navbar-brand'%>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="navbar-toggler" type="button">
+            <%= link_to 'All authorships', authorships_path, class: 'navbar-brand'%>
+          </button>
+        </li>
+        <li class="nav-item navbar-toggler">
+          <%= link_to new_book_path, class: 'nav-link' do %>
+          <i class="fa fa-plus-circle"></i>
+            New Book
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= form_tag(root_path, method: :get) do %>
+            <%= text_field_tag :term, params[:term] %>
+            <%= submit_tag 'Search', name: nil %>
+          <% end %>
+        </li>
+     </ul>
     </nav>
-
-
     <%= yield %>
   </body>
 </html>

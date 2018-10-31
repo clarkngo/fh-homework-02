@@ -1,29 +1,13 @@
 class BooksController < ApplicationController
-# add book
 
-# update book
-
-# delete book
-
-# list all books
-
-# show book details
-
-# search for book by [title, author, classification, genre, type]
-  
   def index
-    @books = Book.all
-    if params[:search]
-      @search_term = params[:search]
-      @search_by = params[:search_by]
-      @books = @books.search(@search_by, @search_term)
-    end
+    @books = Book.search(params[:term])
   end
-
+  
   def new 
     @book = Book.new
   end
-  
+
   def create
     @book = Book.create(book_params)
     if @book.invalid?
@@ -34,6 +18,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    @authors = @book.authors
   end
 
   def edit
@@ -52,7 +37,11 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-
+    Authorship.all.each do |authorship|
+      if authorship.book_id == @book.id
+        authorship.destroy
+      end
+    end
     @book.destroy
     redirect_to root_path
   end
@@ -60,7 +49,9 @@ class BooksController < ApplicationController
   private 
 
   def book_params
-    params.require(:book).permit(:title, :author, :genre, :classification, :type_book, :year)
+    params.require(:book).permit(:title, :author, :genre, :classification, :book_type, :year, :sub_title)
   end
+
+  
 
 end

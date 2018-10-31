@@ -1,8 +1,12 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.1'
-
+# fonts and icons
+gem "font-awesome-rails", '~> 4.7.0.4'
+# bootstrap gems
+gem 'popper_js', '~> 1.11.1'
+gem 'bootstrap', '4.0.0.alpha6'
+gem 'jquery-rails', '~> 4.3.3'
 # generate fake data
 gem 'faker', '~> 1.9.1'
 # form submission
@@ -57,3 +61,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Bootstrap gems
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+end

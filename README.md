@@ -1,172 +1,124 @@
-# README
+# fh-homework-02
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A repository of books that you can search!
 
-Things you may want to cover:
+## Soon!
+This app powers <Project Name> located [here](Heroku Project URL)
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+## Software requirements
 
-* Configuration
+- Rails 5.0.0 or higher
 
-* Database creation
+- Ruby 2.3.1 or higher
 
-* Database initialization
+- PostgreSQL 9.3.11 or higher
 
-* How to run the test suite
+## Create Account in GitHub and Heroku
 
-* Services (job queues, cache servers, search engines, etc.)
+<a href="https://github.com/">GitHub</a>
+<a href="https://www.heroku.com/">Heroku</a>
 
-* Deployment instructions
+## Setup your development environment (Mac)
 
-* ...
+Download vagrant files here: <a href="https://github.com/FirehoseProject/firehose-vagrant-rails5/raw/master/tools/vagrant.zip?raw=true">vagrant.zip</a>
 
-# README
+Save to your Desktop
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Unzip the file, it will create a folder called vagrant on your Desktop. This is where all your web development environment will live.
 
-Things you may want to cover:
+## Install Tools for development environment (Mac)
 
-* Ruby version
+Go to the VirtualBox Website, click the link to Download "OS X hosts". Open the dmg file that downloads, then double click on VirtualBox.pkg that pops up and follow the instructions (you're clicking continue most of the time). Once you go through that step close out the "VirtualBox" window.
 
-* System dependencies
+Go to the <a href="http://www.vagrantup.com/downloads.html">Vagrant Download</a> Page, click Find the Mac OS X section and click "Universal (32 and 64-bit)". Run the file you downloaded and follow the instructions (you're clicking next most of the time)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# Homework 2 - Building a simple Rails application
-
-## Due Date
-
-TBD
-
-## Goals
-
-- The purpose of this application is to build a simple book catalog application
-with the following features:
-
-- add book
-
-- update book
-
-- delete book
-
-- list all books
-
-- show book details
-
-- search for book by [title, author, classification, genre, type]
-
-## Readings and Resources
-
-Active Record Query Interface - http://guides.rubyonrails.org/active_record_querying.html
-
-Generic Search Form - http://guides.rubyonrails.org/form_helpers.html#a-generic-search-form
-
-Faker - https://github.com/stympy/faker
-
-Seed File - http://www.xyzpub.com/en/ruby-on-rails/3.2/seed_rb.html
-
-## Book model information
-
-- The book model will hold information about our book and it should have the
-following fields at a minimum:
-
-- title - string
-
-- author - string
-
-- genre - string
-
-- classification - string
-
-possible options for classification
-
-- General Works - encyclopedias
-- Philosophy, Psychology, Religion
-- History - Auxiliary Sciences
-- History (except American)
-- General U.S. History
-- Local U.S. History
-- Geography, Anthropology, Recreation
-- Social Sciences    U
-- Political Science    V
-- Law    Z - Bibliography and Library Science
-- Education
-- Music
-- Fine Arts
-- Language and Literature
-- Science
-- Medicine
-- Agriculture
-- Technology
-- Military
-- Naval Science
-- Bibliography and Library Science
-
-- type - string
-
-possible options for type
-
-- Fiction
-- Nonfiction
-
-- year - integer
-
-## Creating Rails API application
+## Turn on your Web Dev environment
 
 ```
-$ rails new fh-homework-02 -T -d postgresql
+cd ~/Desktop/vagrant
+vagrant up
+vagrant ssh
+```
+
+## Accounts SSH Key
+
+Generate SSH Key
+Inside the web development terminal window, where it says [Web Dev] in blue, run the following lines one by one. important note: the command has backticks (`) not single-quotes ('), either copy and paste the command or if you type it use the key to the left of the 1 to type the backtick in the first line:
+```
+eval `ssh-agent -s`
+ssh-keygen -t rsa -C "Firehose Vagrant" -N '' -f ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa
+```
+
+## Configure Heroku with SSH Keys
+update the heroku-cli with the following command:
+```
+wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+heroku login
+heroku keys:add
+```
+
+## Configure Github with SSH Keys
+```
+curl https://gist.githubusercontent.com/kenmazaika/fa8ea7dfbae413638cfd111b974bc74a/raw/ecb5e91c044d92389d0cfd3c2229e57187384d6d/github_auth.rb  > ~/.firehose-github.rb && ruby ~/.firehose-github.rb
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+```
+
+## Test
+```
+cd /vagrant/src/firehose-test-app
+rails s -b 0.0.0.0 -p 3000
+```
+
+## Clone this repository
+```
+git clone git@github.com:clarkngo/fh-homework-02.git
+```
+
+## Navigate to the Rails application
+
+```
 $ cd fh-homework-02
-$ git init
-$ git remote add origin git@github.com:clarkngo/fh-homework-02.git
-$ git push -u origin master
-$ git add .
-$ git commit -am 'Initial commit'
-$ git checkout -b part-01-initial-app
 ```
 
-## Generate Fake Data
+## Create, migrate and seed the database
 
-- Use a Ruby gem called `faker` to generate 50 books
+ ```
+ $ rails db:create
+ $ rails db:migrate
+ $ rake db:seed
+ ```
 
-- add the logic to your `seeds.rb` file for creating the book models
-
-## Deliverables
-
-- create a repo called `fh-homework-02` on Github.com
-
-- push changes to Github to the branch, `part-01-initial-app`
+## Starting the local server
 
 ```
-$ git checkout part-01-initial-app
-$ git push
+$ rails server
+
+   or
+
+$ rails s
 ```
 
-- merge changes into the master branch and push to Github
+## Production Deployment
 
-```
-$ git checkout master
-$ git merge part-01-initial-app
-$ git push
-```
+  ```
+  $ git push heroku master
+  $ heroku run rake db:migrate
+  ```
 
-- send me the link to your `part-01-initial-app` branch
+## Support
 
-## Have Questions
+Bug reports and feature requests can be filed with the rest for the Ruby on Rails project here:
 
-Please make a reasonable effort to complete the homework prior to our next session.  If you have any questions regarding this homework, please do send me a message via Slack.
+* [File Bug Reports and Features](https://github.com/clarkngo/fh-homework-02/issues)
+
+## License
+
+fh-homework-02 is released under the [MIT license](https://mit-license.org).
+
+## Copyright
+
+copyright:: (c) Copyright 2018 Clark Jason Ngo. All Rights Reserved.

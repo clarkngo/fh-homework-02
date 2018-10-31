@@ -1,0 +1,80 @@
+@import "bootstrap";
+@import "font-awesome";
+
+body {
+	background-image: image_url('bg_paper.png')
+}
+
+table {
+	border: 1px solid #ccc;
+	border-collapse: collapse;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	table-layout: fixed;
+}
+
+table th,
+table td {
+	padding: 1.625em;
+	
+}
+
+.table-header {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+}
+
+.table-contents {
+	font-size: 12px;
+}
+
+.table-title {
+	text-align: left;
+}
+
+.table-year {
+	text-align: center;
+}
+
+.booyah-box {
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: rgba(0, 255, 0, 0.009);	
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top: 10px;
+  margin-bottom: 15px;
+	padding: 20px;
+}
+
+.navbar {
+	background: image_url('nav_bar_books.jpg');  
+	box-shadow: 0px 1px 3px #2a2a2a;
+}
+
+.navbar-brand {
+  color: white;  
+	background-color: rgba(0, 255, 0, 0.5);	
+	margin: 5px;
+	padding: 5px;
+	border-top-style: dotted;
+	border-right-style: solid;
+	border-bottom-style: dotted;
+	border-left-style: solid;
+	border-width: 5px;
+}
+
+.nav-link {
+  color: white; 
+}
+
+ul {
+	list-style: none;
+}
+
+.link {
+	color: darkgreen;
+}
