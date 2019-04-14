@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem "actionview", ">= 5.2.2.1"
+gem "railties", ">= 5.2.2.1"
 # fonts and icons
 gem "font-awesome-rails", '~> 4.7.0.4'
 # bootstrap gems
